@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Mission to Mars</title>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <style>
+        body {
+    background-color: whitesmoke;
+    text-align: center;
+    background-image: url('https://cdn.nextgov.com/media/img/upload/2020/10/19/NGspace20201019/860x394.jpg');
+    }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="jumbotron text-center" style="background-image: url(https://i.natgeofe.com/k/eeb640a6-c3bf-4d83-a806-f5829d474f5d/mars.jpg); background-size: 100%; height: 300px;">
+        <h1 style="color: red">Mission To Mars</h1>
+        <a class="btn btn-lg" style="background-color: gray; color: white" href="/scrape" role="button">Hit to Scrape Mars Data</a>
+        </div>
+    </div>
+
+
+    <!-- Mars News -->
+    <div class="row">
+        <div class="col-md-12">
+        <div class="media">
+            <div class="media-body">
+            <h2 style="color: white"><b>Mars News</b></h2>
+            <h4 class="media-heading" style="color: white"><b>Article Title: {{mars.news_title}}</b></h4>
+            <h4 style="color: white"><p>{{mars.news_paragraph}}</p></h4>
+            </div>
+        </div>
+        </div>
+    </div>
+
+    <!-- Mars Featured Image -->
+    <div class="row">
+        <div class="col-md-12">
+        <h2 style="color: white"><b>Featured Mars Image</b></h2>
+            <img src="{{mars.featured_image_url}}" class="center">
+        </div>
+    </div>
+
+        <!-- Mars Facts -->
+        <div class="col-md-12">
+            <h2 style="color: white">Mars Facts</h2>
+            <div class="col-md-12" style="color: white">
+            <h2>{{mars.mars_facts | safe}}</h2>
+            </div>
+        </div>
+
+        <!-- Mars Hemispheres -->
+    <div class="row" style="margin-top: 80px;">
+        <div class="page-header">
+        <h2 class="text-center" style="color: white"><b>Mars Hemispheres</b></h2>
+        </div>
+        {% for hemisphere in mars.hemisphere_image_urls %}
+        <div class="col-md-6">
+            <div class="thumbnail">
+            <img src="{{hemisphere.img_url}}">
+            <div class="caption">
+                <h3><b>{{hemisphere.title}}</b></h3>
+            </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+</body>
+</html>
