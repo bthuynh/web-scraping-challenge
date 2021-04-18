@@ -19,7 +19,7 @@
     <div class="container">
         <div class="jumbotron text-center" style="background-color: black; background-size: 100%; height: 300px;">
         <h1 style="color: red">Mission To Mars</h1>
-        <a class="btn btn-lg" style="background-color: gray; color: white" href="/scrape" role="button">Hit to Scrape Mars Data</a>
+        <a class="btn btn-lg" style="background-color: gray; color: white" href="/scrape" role="button">Scrape Mars Data</a>
         </div>
     </div>
 
@@ -49,7 +49,7 @@
         <div class="col-md-12">
             <h2 style="color: white">Mars Facts</h2>
             <div class="col-md-12" style="color: white">
-            <h2>{{mars.mars_facts | safe}}</h2>
+            <h2 class="text-center">{{mars.mars_facts | safe}}</h2>
             </div>
         </div>
 
@@ -59,7 +59,7 @@
         <h2 class="text-center" style="color: white"><b>Mars Hemispheres</b></h2>
         </div>
         {% for hemisphere in mars.hemisphere_image_urls %}
-        <div class="col-md-6">
+        <div class="col-md-12">
             <div class="thumbnail">
             <img src="{{hemisphere.img_url}}">
             <div class="caption">
